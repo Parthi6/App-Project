@@ -7,7 +7,7 @@ This is a comprehensive ecommerce application built using the MERN stack, with s
 ### User
 * View collections (men, women, kids) and subcategories (topwear, bottomwear, winter wear)
 * Sort products by price and relevance
-* Place orders with payment options (COD, Stripe, Razorpayh)
+* Place orders with payment options (COD, Stripe)
 * View order history and bestsellers
 
 ### Admin
@@ -19,7 +19,7 @@ This is a comprehensive ecommerce application built using the MERN stack, with s
 ## Technologies Used
 
 * **Frontend**: React, Tailwind CSS, Axios, React Router, React Toastify
-* **Backend**: Express, MongoDB, Mongoose, JWT, Multer, Cloudinary, Stripe, Razorpayh
+* **Backend**: Express, MongoDB, Mongoose, JWT, Multer, Cloudinary, Stripe, 
 * **Admin Panel**: React, Tailwind CSS, Axios, React Router, React Toastify
 
 ## Installation
@@ -89,8 +89,6 @@ JWT_SECRET = "<your_jwt_secret>"
 ADMIN_EMAIL ="<your_admin_email>"
 ADMIN_PASSWORD = "<your_admin_password>"
 STRIPE_SECRET_KEY = "<your_stripe_secret_key>"
-Razorpayh_KEY_ID='<your_Razorpayh_key_id>'
-Razorpayh_KEY_SECRET='<your_Razorpayh_key_secret>'
 ```
 
 ### Admin `.env`
@@ -101,7 +99,6 @@ VITE_BACKEND_URL='http://localhost:4000'
 ### Frontend `.env`
 ```
 VITE_BACKEND_URL=http://localhost:4000
-VITE_Razorpayh_KEY_ID='<your_Razorpayh_key_id>'
 ```
 
 ## Contributing

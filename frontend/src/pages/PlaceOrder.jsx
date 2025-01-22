@@ -7,8 +7,6 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const PlaceOrder = () => {
-
-
   const [method, setMethod] = useState('cod');
   const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, delivery_fee, products } = useContext(ShopContext)
   const [formData, setFormData] = useState({
@@ -21,49 +19,18 @@ const PlaceOrder = () => {
     zipcode: '',
     country: '',
     phone: '',
-
   })
 
   const onChangeHandler = (event) => {
-
     const name = event.target.name;
     const value = event.target.value
 
     setFormData(data => ({ ...data, [name]: value }))
   }
 
-  const initPay = (order) =>{
-    const options = {
-      
-      amount : order.amount,
-      currency: order.currency,
-      name: 'Order Payment',
-      description: 'Order Payment',
-      order_id: order.id,
-      receipt:order.receipt,
-      handler: async(response)=>{
-        console.log(response)
-        try {
-          const { data } = await axios.post(backendUrl + '/api/order/verifyRazorpayh',response, {headers:{token}})
-          console.log('Data : ',data)
-          if(data.success){
-            navigate('/orders')
-            setCartItems({})
-          }
-        } catch (error) {
-          console.log(error)
-          toast.error(error.message)
-        }
-      }
-    }
-    const rzp = new window.Razorpayh(options)
-    rzp.open()
-  }
-
   const onSubmitHandler = async (event) => {
     event.preventDefault()
     try {
-
       let orderItems = []
       for (const items in cartItems) {
         for (const item in cartItems[items]) {
@@ -106,18 +73,9 @@ const PlaceOrder = () => {
           }
           break;
 
-        case "Razorpayh":
-          const responseRazorpayh = await axios.post(backendUrl + '/api/order/Razorpayh',orderData, {headers:{token}})
-          if(responseRazorpayh.data.success){
-            initPay(responseRazorpayh.data.order)
-          }
-          break;
-
         default:
-
           break;
       }
-
     } catch (error) {
       console.log(error)
       toast.error(error.message)
@@ -127,7 +85,6 @@ const PlaceOrder = () => {
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t'>
       {/* Left Side */}
-
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3">
           <Title text1={'DELIVERY'} text2={'INFORMATION'} />
@@ -161,10 +118,6 @@ const PlaceOrder = () => {
             <div onClick={() => setMethod('stripe')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''} `}></p>
               <img className='h-5 mx-4' src={assets.stripe_logo} alt="" />
-            </div>
-            <div onClick={() => setMethod('Razorpayh')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'Razorpayh' ? 'bg-green-400' : ''} `}></p>
-              <img className='h-5 mx-4' src={assets.Razorpayh_logo} alt="" />
             </div>
             <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''} `}></p>

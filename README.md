@@ -1,43 +1,48 @@
-# Ecommerce Application
+# LuxeLane Ecommerce Application
 
-This is a comprehensive ecommerce application built using the MERN stack, with separate frontend, backend, and admin interfaces. The application features user authentication, product management, order processing, and payment integrations.
+LuxeLane is a comprehensive ecommerce application built with the MERN stack (MongoDB, Express, React, Node.js). The project includes separate frontend, backend, and admin interfaces, and supports user authentication, product management, order processing, and payment integration.
+
+![image](https://github.com/user-attachments/assets/7a713304-ae9a-46d5-b088-b8f7155fa738)
+
+Live : https://luxelane-pied.vercel.app/
+
 
 ## Features
 
 ### User
-* View collections (men, women, kids) and subcategories (topwear, bottomwear, winter wear)
+* Browse collections (Men, Women, Kids) and subcategories (Topwear, Bottomwear, Winter Wear).
 * Sort products by price and relevance
 * Place orders with payment options (COD, Stripe)
-* View order history and bestsellers
+* View order history and bestseller products.
 
 ### Admin
-* Manage product collections
-* Add new products
-* Update order details
-* Delete products
+* Manage product collections.
+* Add new products to the store.
+* Update product details and order status.
+* Delete products from the store.
 
 ## Technologies Used
 
 * **Frontend**: React, Tailwind CSS, Axios, React Router, React Toastify
-* **Backend**: Express, MongoDB, Mongoose, JWT, Multer, Cloudinary, Stripe, 
+* **Backend**: Express, MongoDB, Mongoose, JWT, Multer, Cloudinary, Stripe
 * **Admin Panel**: React, Tailwind CSS, Axios, React Router, React Toastify
 
 ## Installation
 
 ### Prerequisites
 * Node.js
-* MongoDB
+* MongoDB (running locally or through a cloud service)
 
 ### Setup
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/vishdev-git/ecommerce-app.git
+git clone https://github.com/Parthi6/LuxeLane_Ecommerce_Mern.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd ecommerce-app
+cd LuxeLane_Ecommerce_Mern
 ```
 
 3. Install dependencies for each module:
@@ -81,14 +86,14 @@ cd ecommerce-app
 
 ### Backend `.env`
 ```
-MONGODB_URI= "<your_mongodb_uri>"
-CLOUDINARY_API_KEY ="<your_cloudinary_api_key>"
-CLOUDINARY_SECRET_KEY ="<your_cloudinary_secret_key>"
-CLOUDINARY_NAME = "<your_cloudinary_name>"
-JWT_SECRET = "<your_jwt_secret>"
-ADMIN_EMAIL ="<your_admin_email>"
-ADMIN_PASSWORD = "<your_admin_password>"
-STRIPE_SECRET_KEY = "<your_stripe_secret_key>"
+MONGODB_URI="<your_mongodb_uri>"
+CLOUDINARY_API_KEY="<your_cloudinary_api_key>"
+CLOUDINARY_SECRET_KEY="<your_cloudinary_secret_key>"
+CLOUDINARY_NAME="<your_cloudinary_name>"
+JWT_SECRET="<your_jwt_secret>"
+ADMIN_EMAIL="<your_admin_email>"
+ADMIN_PASSWORD="<your_admin_password>"
+STRIPE_SECRET_KEY="<your_stripe_secret_key>"
 ```
 
 ### Admin `.env`
@@ -104,11 +109,6 @@ VITE_BACKEND_URL=http://localhost:4000
 ## Contributing
 
 Feel free to fork this repository and contribute by submitting a pull request. Any contributions are greatly appreciated!
-
-## Contact
-
-* Email: viswa20.2001@gmail.com
-* LinkedIn: https://www.linkedin.com/in/viswanath025/
 
 ## License
 
